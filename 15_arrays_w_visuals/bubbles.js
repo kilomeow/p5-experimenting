@@ -21,6 +21,10 @@ class Bubble {
     this.amp = new p5.Amplitude();
     this.amp.setInput(obj);
     this.alpha = 0;
+
+    this.cr = random(70, 200)
+    this.cg = random(70, 200)
+    this.cb = random(70, 200)
   }
   
     // Newton's law: F = M * A
@@ -59,9 +63,9 @@ class Bubble {
   
     
   display() {
-    // noStroke();
+    noStroke();
     this.alpha = map(this.amp.getLevel(), 0, 0.1, 0, 255);
-    fill(random(200, 210), random(200, 210), 50, this.alpha);
+    fill(this.cr, this.cg, this.cb, 120);
     this.r = map(this.amp.getLevel(), 0, 0.1, 10, 100);
     ellipse(this.position.x, this.position.y, this.r);
   }
